@@ -1,10 +1,10 @@
-# Portfolio Optimization
+# Modern Portfolio Theory Optimization
 
-Welcome to our portfolio optimization tool repository!
+Welcome to my portfolio optimization tool repository!
 
 ## Overview
 
-Our portfolio optimization tool harnesses the power of Mean-Variance Optimization (MVO) to optimize your stock portfolio allocation. By intelligently balancing risk and return, our tool empowers you to achieve optimal diversification and enhance your investment performance.
+My portfolio optimization tool harnesses the power of Mean-Variance Optimization (MVO) to optimize your stock portfolio allocation. By intelligently balancing risk and return, my tool empowers you to achieve optimal diversification and enhance your investment performance.
 
 ## Key Features
 
@@ -14,7 +14,7 @@ Our portfolio optimization tool harnesses the power of Mean-Variance Optimizatio
 
 ## Getting Started
 
-To get started with our portfolio optimization tool, follow these steps:
+To get started with my portfolio optimization tool, follow these steps:
 
 1. **Clone the Repository:** Clone this repository to your local machine using the following command:
 
