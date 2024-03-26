@@ -4,7 +4,7 @@ Welcome to my portfolio optimization tool repository!
 
 ## Overview
 
-My portfolio optimization tool harnesses the power of Mean-Variance Optimization (MVO) to optimize your stock portfolio allocation. By intelligently balancing risk and return, my tool empowers you to achieve optimal diversification and enhance your investment performance. The tool specifically focuses on companies listed in the NASDAQ 500, ensuring that your portfolio optimization is based on a carefully selected subset of stocks representing a diverse range of industries and sectors. This targeted approach enables you to make informed investment decisions tailored to the composition of the NASDAQ 500 index.
+My portfolio optimization tool harnesses the power of Mean-Variance Optimization (MVO) to optimize your stock portfolio allocation. By intelligently balancing risk and return, my tool empowers you to achieve optimal diversification and enhance your investment performance. The tool specifically focuses on companies listed in the S&P 500, ensuring that your portfolio optimization is based on a carefully selected subset of stocks representing a diverse range of industries and sectors. This targeted approach enables you to make informed investment decisions tailored to the composition of the S&P 500 index.
 
 ## Key Features
 
