@@ -28,6 +28,7 @@ def fetch_closing_prices(symbol):
     else:
         print(f"Failed to retrieve data: {response.status_code}")
 
+
 # Test the function
 if __name__ == "__main__":
     symbol = input("Enter stock symbol: ")
