@@ -1,6 +1,9 @@
 import tkinter as tk
 from tkinter.ttk import OptionMenu
 import dataProcessing
+from tkinter import ttk
+import sv_ttk
+
 
 def search_stock():
     query = symbol_entry.get()
@@ -43,6 +46,7 @@ def add_stock_entry():
 root = tk.Tk()
 root.geometry("600x400")
 root.title("Portfolio Optimization")
+
 
 
 # Create a frame for welcome message
@@ -102,5 +106,7 @@ add_button.grid(row=4, column=0, padx=5, pady=5)
 
 # List to keep track of stock entries
 stock_entries = [(symbol_entry, config_frame)]
+
+sv_ttk.set_theme("dark")
 
 root.mainloop()
