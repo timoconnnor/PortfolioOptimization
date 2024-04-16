@@ -32,7 +32,7 @@ def add_stock_entry():
 # Everything below are edits to the GUI
 
 root = tk.Tk()
-root.geometry("600x400")
+root.geometry("600x700")
 root.title("Portfolio Optimization")
 
 # Create a frame for welcome message
@@ -48,8 +48,8 @@ info_frame = tk.Frame(root)
 info_frame.pack(fill="x", padx=5, pady=10)
 
 # Create a Text widget for additional information
-textbox = tk.Text(info_frame, height=5, width=80)
-textbox.insert(tk.END, "This tool empowers you to optimize your stock portfolio allocation using Mean-Variance Optimization (MVO). Just put in your S&P 500 stocks along with their risk and watch your efficient frontier be created for you!!!")
+textbox = tk.Text(info_frame, height=10, width=80, font=('timesnewroman', 9))
+textbox.insert(tk.END, "This tool empowers you to optimize your stock portfolio allocation using Mean-Variance Optimization (MVO). Just put in your S&P 500 stocks along with their risk and watch your efficient frontier be created for you! Follow these steps: \n\n 1. Select Start and End years for Portoflio Optimization period \n 2. Put in Stock tickers \n 3. Adjust Allocation for stocks")
 textbox.pack()
 textbox.config(state=tk.DISABLED)
 
@@ -89,6 +89,13 @@ symbol_label.pack(fill="x", padx=5, pady=5)
 
 symbol_entry = tk.Entry(config_frame)
 symbol_entry.pack(fill="x", padx=5, pady=5)
+
+# Create the initial stock entry widgets
+result_label = tk.Label(config_frame, text="Stock Data:", anchor=tk.W)
+result_label.pack(fill="x", padx=5, pady=5)
+
+search_stock_button = tk.Button(root, text="Search Stock Entry Data", command=search_stock)
+search_stock_button.pack(fill="x", padx=5, pady=5)
 
 add_button = tk.Button(root, text="+ Add Stock Entry", command=add_stock_entry)
 add_button.pack(fill="x", padx=5, pady=5)
