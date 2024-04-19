@@ -8,8 +8,9 @@ import numpy as np # numerical python
 import matplotlib.pyplot as plt # mathematical plotting library
 import cvxpy # convex optimization in python
 import pypfopt.plotting as plotting # python portfolio optimization plotting module
+import gui
 
-stock_data = yf.download("MMM AOS ABT ACN ADBE AAP AMD AFL A APD AKAM ALK ALB ARE ALGN ALLE LNT ALL GS XOM GLD AAPL PFE PG VZ AMZN GE BA", start= "2020-6-1", end = "2023-6-24")
+stock_data = yf.download(gui.stock_symbols, start=gui.start_year, end = gui.end_year)
 
 stock_data = stock_data["Adj Close"]
 
@@ -19,6 +20,7 @@ stock_returns = stock_data.pct_change()[1:]
 mu2 = expected_returns.mean_historical_return(stock_data) # calculates expected returns based on hisotircal mean returns for stocks int he list
 print(mu2)
 type(mu2)
+
 
 # creates the variance-covariance matrix of returns for the stocks in the list
 cov_matrix2 = risk_models.sample_cov(stock_data) # creates the covariance matrix
@@ -55,5 +57,6 @@ plotting.plot_efficient_frontier(ef_constraints, ax=ax, show_assets=True)
 ax.scatter(ef_plot.portfolio_performance()[1], ef_plot.portfolio_performance()[0], marker="*", color="r", s=200, label="Tangency Portfolio")
 ax.legend()
 
+plt.style.use('fivethirtyeight')
 # Display the plot
 plt.show()

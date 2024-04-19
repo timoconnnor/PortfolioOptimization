@@ -1,9 +1,9 @@
 import tkinter as tk
 from tkinter import OptionMenu
 from tkinter import messagebox
-import dataProcessing
 from tkinter import ttk
 import main
+
 
 def run_analysis():
     # retrieve start year
@@ -105,8 +105,6 @@ symbol_entry.pack(fill="x", padx=5, pady=5)
 result_label = tk.Label(config_frame, text="Efficient Frontier Plot:", anchor=tk.W)
 result_label.pack(fill="x", padx=5, pady=5)
 
-main.plt.show()
-
 
 # Create a frame for theme change button
 theme_frame = tk.Frame(root)
@@ -140,3 +138,4 @@ button = ttk.Button(theme_frame, text="Change theme!", command=change_theme)
 button.pack(fill="x")
 
 root.mainloop()
+
