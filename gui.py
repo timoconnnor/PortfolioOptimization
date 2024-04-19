@@ -1,20 +1,31 @@
 import tkinter as tk
-from tkinter.ttk import OptionMenu
+from tkinter import OptionMenu
+from tkinter import messagebox
 import dataProcessing
 from tkinter import ttk
+import main
 
-def search_stock():
-    query = symbol_entry.get()
-    processed_data = dataProcessing.fetch_closing_prices(query)
+def run_analysis():
+    # retrieve start year
+    start_year = var_start.get()
+    if not start_year:
+        messagebox.showerror("Error", "Please select a start year")
+        return
     
-    # Clear any existing result label
-    result_label.config(text="")
+    # retreive selected end year
+    end_year = var_end.get()
+    if not end_year:
+        messagebox.showerror("Error", "Please select an end year")
+        return
+    
+    stock_symbols = []
+    for entry_widget, _ in stock_entries:
+        symbol = entry_widget.get()
+        if not symbol:
+            messagebox.showerror("Error", "Please enter a stock symbol")
+            return
+        stock_symbols.append(symbol)
 
-    # Display the processed data or an error message
-    if processed_data is not None:
-        result_label.config(text=processed_data)
-    else:
-        result_label.config(text="No data found for the entered stock symbol.")
 
 def add_stock_entry():
     global stock_entries
@@ -91,28 +102,32 @@ symbol_entry = tk.Entry(config_frame)
 symbol_entry.pack(fill="x", padx=5, pady=5)
 
 # Create the initial stock entry widgets
-result_label = tk.Label(config_frame, text="Stock Data:", anchor=tk.W)
+result_label = tk.Label(config_frame, text="Efficient Frontier Plot:", anchor=tk.W)
 result_label.pack(fill="x", padx=5, pady=5)
 
-search_stock_button = tk.Button(root, text="Search Stock Entry Data", command=search_stock)
-search_stock_button.pack(fill="x", padx=5, pady=5)
+main.plt.show()
 
-add_button = tk.Button(root, text="+ Add Stock Entry", command=add_stock_entry)
-add_button.pack(fill="x", padx=5, pady=5)
-
-# List to keep track of stock entries
-stock_entries = [(symbol_entry, config_frame)]
 
 # Create a frame for theme change button
 theme_frame = tk.Frame(root)
 theme_frame.pack(fill="x", padx=5, pady=10)
+
+add_button = tk.Button(theme_frame, text="+ Add Stock Entry", command=add_stock_entry)
+add_button.pack(fill="x", padx=5, pady=5)
+
+search_stock_button = tk.Button(theme_frame, text="Click Here to Create Plot", command=run_analysis)
+search_stock_button.pack(fill="x", padx=5, pady=5)
+
+
+# List to keep track of stock entries
+stock_entries = [(symbol_entry, config_frame)]
+
 
 # Set the initial theme
 root.tk.call("source", "azure.tcl")
 root.tk.call("set_theme", "light")
 
 def change_theme():
-    # NOTE: The theme's real name is azure-<mode>
     if root.tk.call("ttk::style", "theme", "use") == "azure-dark":
         # Set light theme
         root.tk.call("set_theme", "light")
