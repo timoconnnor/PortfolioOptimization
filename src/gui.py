@@ -22,7 +22,7 @@ class MyGUI:
         self.info_frame.pack(fill="x", padx=5, pady=10)
 
         # Create a Text widget for additional information
-        self.textbox = tk.Text(self.info_frame, height=20, width=80, font=('timesnewroman', 9))
+        self.textbox = tk.Text(self.info_frame, height=20, width=80, font=('timesnewroman', 9), wrap=tk.WORD)
         instructions = (
             "This tool empowers you to optimize your stock portfolio allocation using Mean-Variance Optimization (MVO). "
             "By inputting your S&P 500 stock tickers along with the desired time period, you can visualize and adjust your portfolio on the efficient frontier. "
