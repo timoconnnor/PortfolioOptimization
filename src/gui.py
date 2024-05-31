@@ -14,7 +14,7 @@ class MyGUI:
         self.welcome_frame.pack(fill="x", padx=5, pady=10)
 
         # Create a label for welcome message
-        self.welcome_label = tk.Label(self.welcome_frame, text="Welcome to my Portfolio Optimization for my Invesco Internship Project!", font=('Arial', 16))
+        self.welcome_label = tk.Label(self.welcome_frame, text="Welcome to my Portfolio Optimization Tool!", font=('Arial', 16))
         self.welcome_label.pack()
 
         # Create a frame for additional information
@@ -22,8 +22,27 @@ class MyGUI:
         self.info_frame.pack(fill="x", padx=5, pady=10)
 
         # Create a Text widget for additional information
-        self.textbox = tk.Text(self.info_frame, height=10, width=80, font=('timesnewroman', 9))
-        self.textbox.insert(tk.END, "This tool empowers you to optimize your stock portfolio allocation using Mean-Variance Optimization (MVO). Just put in your S&P 500 stocks along with their risk and watch your efficient frontier be created for you! Follow these steps: \n\n 1. Select Start and End years for Portoflio Optimization period \n 2. Put in Stock tickers \n 3. Adjust Allocation for stocks")
+        self.textbox = tk.Text(self.info_frame, height=20, width=80, font=('timesnewroman', 9))
+        instructions = (
+            "This tool empowers you to optimize your stock portfolio allocation using Mean-Variance Optimization (MVO). "
+            "By inputting your S&P 500 stock tickers along with the desired time period, you can visualize and adjust your portfolio on the efficient frontier. "
+            "The tool automatically calculates the optimal weights of allocation for your portfolio to maximize the Sharpe ratio, helping you achieve the best risk-return trade-off.\n\n"
+            
+            "How to Use:\n"
+            "1. Select Start and End Years:\n"
+            "   Use the dropdown menus to select the start and end years for your portfolio optimization period. "
+            "Ensure that the dates are correctly formatted as 'YYYY-MM-DD' (e.g., '2024-01-01').\n"
+            "2. Input Stock Tickers:\n"
+            "   Enter the stock symbols in the provided input fields. You can add multiple stocks by clicking the '+ Add Stock Entry' button.\n"
+            "3. Calculate and Visualize:\n"
+            "   Click the 'Click Here to Create Plot' button to calculate the optimal portfolio weights and visualize the efficient frontier. "
+            "The tool will download historical price data for the selected stocks, calculate expected returns and covariance matrices, and perform the optimization.\n"
+            "   The efficient frontier plot will be displayed, showing the optimal risk-return combinations. "
+            "You can see the expected returns, volatility, and Sharpe ratio of your portfolio."
+        )
+
+        self.textbox.insert(tk.END, instructions)
+
         self.textbox.pack()
         self.textbox.config(state=tk.DISABLED)
 
@@ -64,9 +83,6 @@ class MyGUI:
         self.symbol_entry = tk.Entry(self.config_frame)
         self.symbol_entry.pack(fill="x", padx=5, pady=5)
 
-        # Create the initial stock entry widgets
-        self.result_label = tk.Label(self.config_frame, text="Efficient Frontier Plot:", anchor=tk.W)
-        self.result_label.pack(fill="x", padx=5, pady=5)
 
         # Create a frame for theme change button
         self.theme_frame = tk.Frame(self.root)
@@ -87,13 +103,13 @@ class MyGUI:
 
     def get_inputs(self):
         # retrieve start year
-        start_year = self.var_start.get()
+        start_year = f"{self.var_start.get()}-01-01"
         if not start_year:
             messagebox.showerror("Error", "Please select a start year")
             return
         
         # retrieve selected end year
-        end_year = self.var_end.get()
+        end_year = f"{self.var_end.get()}-12-31"
         if not end_year:
             messagebox.showerror("Error", "Please select an end year")
             return
@@ -105,6 +121,8 @@ class MyGUI:
                 messagebox.showerror("Error", "Please enter a stock symbol")
                 return
             stock_symbols.append(symbol)
+        return start_year, end_year, stock_symbols
+
 
     def calculate_and_show_plot(self):
         start_year, end_year, stock_symbols = self.get_inputs()
