@@ -11,6 +11,7 @@ My portfolio optimization tool harnesses the power of Mean-Variance Optimization
 - **Historical Data Analysis:** Analyze historical stock price data to understand past performance and trends.
 - **Covariance Matrices:** Calculate covariance matrices to quantify the relationships between different stocks in your portfolio.
 - **Efficient Frontier Modeling:** Utilize efficient frontier modeling to identify the optimal portfolio allocation that maximizes expected return for a given level of risk.
+- **Sharpe Ratio Optimization:** Automatically calculates the optimal weights of allocation for your portfolio to maximize the Sharpe ratio, helping you achieve the best risk-return trade-off.
 
 ## Getting Started
 
@@ -30,13 +31,13 @@ To get started with my portfolio optimization tool, follow these steps:
 
 To use the portfolio optimization tool, follow these instructions:
 
-1. **Input Data:** Provide historical stock price data for the stocks you want to include in your portfolio.
+1. **Select Start and End Years:** Use the dropdown menus to select the start and end years for your portfolio optimization period. Ensure that the dates are correctly formatted as 'YYYY-MM-DD' (e.g., '2024-01-01').
 
-2. **Configure Parameters:** Adjust parameters such as risk tolerance, expected returns, and constraints (if any).
+2. **Input Stock Tickers:** Enter the stock symbols in the provided input fields. You can add multiple stocks by clicking the '+ Add Stock Entry' button.
 
-3. **Run Optimization:** Execute the optimization algorithm to generate the optimal portfolio allocation based on the specified criteria.
+3. **Calculate and Visualize:** Click the 'Click Here to Create Plot' button to calculate the optimal portfolio weights and visualize the efficient frontier. The tool will download historical price data for the selected stocks, calculate expected returns and covariance matrices, and perform the optimization.
 
-4. **Review Results:** Analyze the results to understand the recommended portfolio allocation and associated risk-return profile.
+4. **Review Results:** The efficient frontier plot will be displayed, showing the optimal risk-return combinations. You can see the expected returns, volatility, and Sharpe ratio of your portfolio.
 
 ## Contributing
 
