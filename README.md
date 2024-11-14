@@ -1,5 +1,4 @@
-# Modern Portfolio Theory Optimization for Invesco
-
+# Modern Portfolio Theory Optimization
 Welcome to my portfolio optimization tool repository!
 
 ## Overview
